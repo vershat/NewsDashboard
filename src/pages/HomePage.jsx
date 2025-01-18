@@ -4,15 +4,15 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const HomePage = () => {
-  const [data, setData] = useState([]); // All news and articles
-  const [filteredData, setFilteredData] = useState([]); // Filtered news and articles
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const [filter, setFilter] = useState({
     author: "",
     startDate: null,
     endDate: null,
     type: "",
   });
-  const [isDarkMode, setIsDarkMode] = useState(false); // Dark mode state
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const API_KEY = "9a9f8d1da79845c0a21806ab886169e9";
   const url = "https://newsapi.org/v2/everything?q=";
@@ -51,8 +51,7 @@ const HomePage = () => {
 
     if (filter.startDate) {
       filtered = filtered.filter(
-        (item) =>
-          new Date(item.publishedAt) >= new Date(filter.startDate)
+        (item) => new Date(item.publishedAt) >= new Date(filter.startDate)
       );
     }
 
